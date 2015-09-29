@@ -32,5 +32,5 @@ Installing craft is easy, fire up your terminal, and execute the following comma
 ```
 
 # PS
-* Tested only on Mac with Python2.7 (pulls welcome)
+* Tested on Mac and Linux (ArchLinux) with Python2.7 (pulls welcome)
 * Thank you!
