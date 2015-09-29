@@ -20,7 +20,7 @@ Craft lets you instantly share files over HTTP from command line. You can use cr
 Installing craft is easy, fire up your terminal, and execute the following commands in order:
 ```
   sudo wget https://raw.github.com/ashisha/craft/master/craft -O /usr/local/bin/craft
-  sudo chmod +x /usr/local/bin/shuttle
+  sudo chmod +x /usr/local/bin/craft
 ```
 
 # PS
