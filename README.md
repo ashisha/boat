@@ -1,15 +1,15 @@
-# craft
-Craft lets you instantly share any file over HTTP from command line. You can use craft to share files over local network, or transfer to mobile devices if they are on same WiFi network!
+# boat
+Boat lets you instantly share any file over HTTP from command line. You can use boat to share files over local network, or transfer to mobile devices if they are on same WiFi network!
 
-![](https://github.com/ashisha/craft/blob/master/screenshot/craft.png)
+![](https://github.com/ashisha/boat/blob/master/screenshot/craft.png)
 
 # Usage
-* To share a file called file.txt, run ```craft file.txt```
-* craft will spawn a HTTP server and tell you the corresponding URL
+* To share a file called file.txt, run ```boat file.txt```
+* boat will spawn a HTTP server and tell you the corresponding URL
 * You can now download file.txt on the local network by going to URL via any client (browser, curl, wget)
-* Additionally you can ask craft to generate a QR code: ```craft --qr file.txt```
-* craft will then generate a QR code for you which can be scanned easily on mobile devices
-* For more help, run ```craft --help```
+* Additionally you can ask boat to generate a QR code: ```boat --qr file.txt```
+* boat will then generate a QR code for you which can be scanned easily on mobile devices
+* For more help, run ```boat --help```
 
 # Features
 * Spawns a HTTP server per file, you don't need to worry about port numbers
@@ -25,12 +25,13 @@ Craft lets you instantly share any file over HTTP from command line. You can use
 ```
 
 # Installation
-Installing craft is easy, fire up your terminal, and execute the following commands in order:
+Installing boat is easy, fire up your terminal, and execute the following commands in order:
 ```
-  sudo wget https://raw.github.com/ashisha/craft/master/craft -O /usr/local/bin/craft
-  sudo chmod +x /usr/local/bin/craft
+  sudo wget https://raw.github.com/ashisha/boat/master/boat -O /usr/local/bin/boat
+  sudo chmod +x /usr/local/bin/boat
 ```
 
 # PS
 * Tested on Mac and Linux (ArchLinux) with Python2.7 (pulls welcome)
 * Thank you!
+

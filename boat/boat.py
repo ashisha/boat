@@ -6,7 +6,7 @@ import pyqrcode
 import os
 import shutil
 
-class CraftHTTPServer(BaseHTTPServer.HTTPServer):
+class BoatHTTPServer(BaseHTTPServer.HTTPServer):
     def __init__(self, server_address, server_handler, timeout, maxrequests):
         BaseHTTPServer.HTTPServer.__init__(self, server_address, server_handler)
         self.run = True
@@ -17,8 +17,8 @@ class CraftHTTPServer(BaseHTTPServer.HTTPServer):
     def handle_timeout(self):
         self.run = False
 
-class CraftHTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
-    server_version = 'Craft/0.1'
+class BoatHTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+    server_version = 'Boat/0.1'
 
     def do_GET(s):
         s.server.requests_served = s.server.requests_served + 1
@@ -43,7 +43,7 @@ class CraftHTTPHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         except EnvironmentError:
             s.send_error(404, "File [%s] not found" % s._file)
 
-class Craft:
+class Boat:
     def __init__(self, filename, qr_code, timeout, maxrequests):
         self.__filename = filename
         self.__qr = qr_code
@@ -54,8 +54,8 @@ class Craft:
         host = socket.gethostbyname(socket.getfqdn())
         port = 0 # Let OS decide the port
 
-        CraftHTTPHandler._file = self.__filename
-        httpd = CraftHTTPServer((host, port), CraftHTTPHandler, self.__timeout, self.__maxrequests)
+        BoatHTTPHandler._file = self.__filename
+        httpd = BoatHTTPServer((host, port), BoatHTTPHandler, self.__timeout, self.__maxrequests)
 
         self.console_out(host, httpd.server_port)
  
@@ -89,7 +89,7 @@ class Craft:
         httpd.server_close()
 
     def console_out(self, host, port):
-        print "Craft serving [%s] at http://%s:%s" % (self.__filename, host, port)
+        print "Boat serving [%s] at http://%s:%s" % (self.__filename, host, port)
         if (self.__qr):
             try:
                 import pyqrcode
@@ -101,7 +101,7 @@ class Craft:
 def main():
     import argparse
 
-    parser = argparse.ArgumentParser(description = "craft: Transfer files over HTTP easily",
+    parser = argparse.ArgumentParser(description = "boat: Transfer files over HTTP easily",
                 formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file')
     parser.add_argument('-q', '--qr', default = False, action = 'store_true', help = "display a QR code of the URL")
@@ -109,8 +109,8 @@ def main():
     parser.add_argument('-m', '--max', type = int, default = 10, help = "close the server after m requests are served")
     args = parser.parse_args()
 
-    craft = Craft(args.file, args.qr, args.timeout, args.max)
-    return craft.run()
+    boat = Boat(args.file, args.qr, args.timeout, args.max)
+    return boat.run()
 
 if __name__ == '__main__':
     sys.exit(main())
