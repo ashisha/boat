@@ -16,20 +16,34 @@ Boat lets you instantly share any file over HTTP from command line. You can use 
 * The spawned HTTP servers are auto-managed, they kill themselves after a certain timeout or maximum number of requests
 * Support for QR code generation to assist mobile devices
 
-# Requirements
-* Python 2.x
-* Python Imaging and QR libraries (optional):
-```
-  pip install Pillow
-  pip install pyqrcode
-```
 
 # Installation
-Installing boat is easy, fire up your terminal, and execute the following commands in order:
+* [Pip](https://pypi.python.org/pypi/boat) (Recommended)
+  ```
+  pip install boat
+  ```
+
+* Old School
 ```
-  sudo wget https://raw.github.com/ashisha/boat/master/boat -O /usr/local/bin/boat
-  sudo chmod +x /usr/local/bin/boat
+  git clone --recursive git@github.com:ashisha/boat.git
+  cd boat
+  python setup.py install
 ```
+
+# Usage
+## Basic
+```
+  boat file.txt     # prints the url you can use to download file.txt
+```
+## Transfer to mobile devices
+```
+  boat file.txt --qr    # prints the url and QR code you can use to download file.txt
+```
+## Advanced
+```
+  boat --help    # you know it
+```
+
 
 # PS
 * Tested on Mac and Linux (ArchLinux) with Python2.7 (pulls welcome)
