@@ -1,7 +1,7 @@
 # boat
 Boat lets you instantly share any file over HTTP from command line. You can use boat to share files over local network, or transfer to mobile devices if they are on same WiFi network!
 
-![](https://github.com/ashisha/boat/blob/master/screenshot/craft.png)
+![](https://github.com/ashisha/boat/blob/master/screenshot/boat.png)
 
 # Usage
 * To share a file called file.txt, run ```boat file.txt```
